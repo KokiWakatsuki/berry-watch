@@ -1,0 +1,10 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      TZ: Asia/Tokyo  # 日本時間で「本日」を判定する
+    volumes:
+      - .:/app        # このフォルダをコンテナ内に共有する．変更は即時反映
+    command: uvicorn app:app --host 0.0.0.0 --port 8000 --reload  # 変更時に自動で再起動する

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ベリーウォッチ</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header class="topbar">
+    <a class="brand" href="/">ベリーウォッチ</a>
+    <span class="farm">ひだまり農園</span>
+  </header>
+
+  <!-- 農園の写真と概要 -->
+  <section class="hero">
+    <img src="/static/images/farm.jpg" alt="農園のビニールハウス">
+    <div class="hero-text">
+      <h1>本日のハウス</h1>
+      <p id="summary">読み込み中…</p>
+    </div>
+  </section>
+
+  <main class="page">
+
+    <!-- 警告（低温の棟があるときだけ表示） -->
+    <div id="alert" class="alert" hidden></div>
+
+    <div class="toolbar">
+      <button id="reload" class="button">更新</button>
+      <span id="elapsed" class="muted"></span>
+    </div>
+
+    <!-- 棟のカードの表示位置 -->
+    <div id="cards" class="cards"></div>
+
+  </main>
+
+  <!-- 棟のカードのひな形．list.js が複製して棟の数だけ表示する -->
+  <template id="card-template">
+    <a class="card">
+      <img class="card-photo" alt="">
+      <div class="card-body">
+        <div class="card-head">
+          <span class="card-name"></span>
+          <span class="badge"></span>
+        </div>
+        <div class="card-crop muted"></div>
+        <div class="card-temperature"></div>
+        <dl class="card-details">
+          <div><dt>湿度</dt><dd class="card-humidity"></dd></div>
+          <div><dt>本日最高</dt><dd class="card-max"></dd></div>
+          <div><dt>本日最低</dt><dd class="card-min"></dd></div>
+        </dl>
+        <div class="card-time muted"></div>
+      </div>
+    </a>
+  </template>
+
+  <script src="/static/list.js"></script>
+</body>
+</html>

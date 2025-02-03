@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>棟の様子 | ベリーウォッチ</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <!-- グラフ部品（Chart.js） -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header class="topbar">
+    <a class="brand" href="/">ベリーウォッチ</a>
+    <span class="farm">ひだまり農園</span>
+  </header>
+
+  <main class="page">
+    <a href="/" class="back">← 一覧へ戻る</a>
+
+    <section class="house">
+      <img id="photo" class="house-photo" alt="">
+      <div>
+        <h1 id="name">読み込み中…</h1>
+        <p id="crop" class="muted"></p>
+        <div class="house-numbers">
+          <div><span class="label">現在の温度</span><span id="temperature" class="big"></span></div>
+          <div><span class="label">現在の湿度</span><span id="humidity" class="big"></span></div>
+        </div>
+        <p id="time" class="muted"></p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>温度の推移（直近60件）</h2>
+      <div class="chart-box"><canvas id="chart"></canvas></div>
+    </section>
+  </main>
+
+  <script src="/static/house.js"></script>
+</body>
+</html>

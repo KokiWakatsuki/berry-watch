@@ -1,0 +1,148 @@
+/* ハウスみまもりのスタイル
+   配色はカラーユニバーサルデザイン推奨配色から選定． */
+
+
+/* ===== 色・サイズの定義 ===== */
+
+:root {
+  --green: #03AF7A;       /* 正常 */
+  --green-dark: #1F6B52;  /* ヘッダー */
+  --red: #FF4B00;         /* 低温 */
+  --red-pale: #FFF1EB;
+  --gray: #5F6B75;        /* 記録なし・補足文字 */
+  --text: #1E2A32;
+  --background: #F4F6F5;
+  --white: #FFFFFF;
+  --radius: 14px;
+}
+
+
+/* ===== ページ全体 ===== */
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Hiragino Sans", "Noto Sans JP", "Yu Gothic UI", sans-serif;
+  color: var(--text);
+  background: var(--background);
+}
+
+.page { max-width: 1120px; margin: 0 auto; padding: 24px; }
+.muted { color: var(--gray); font-size: 14px; }
+
+
+/* ===== ヘッダー ===== */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 24px;
+  background: var(--green-dark);
+  color: var(--white);
+}
+.brand { color: var(--white); font-weight: bold; font-size: 20px; text-decoration: none; }
+.farm { opacity: 0.85; }
+
+
+/* ===== 農園の写真 ===== */
+
+.hero { position: relative; height: 240px; overflow: hidden; }
+.hero img { width: 100%; height: 100%; object-fit: cover; }
+.hero-text {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 24px;
+  color: var(--white);
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
+}
+.hero-text h1 { margin: 0 0 4px; font-size: 28px; }
+.hero-text p { margin: 0; font-size: 18px; }
+
+
+/* ===== 警告・ボタン ===== */
+
+.alert {
+  margin-bottom: 16px;
+  padding: 14px 18px;
+  border-left: 6px solid var(--red);
+  border-radius: 8px;
+  background: var(--red-pale);
+  color: #A33000;
+  font-weight: bold;
+}
+
+.toolbar { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+.button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background: var(--green-dark);
+  color: var(--white);
+  font-size: 15px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+
+/* ===== 棟のカード ===== */
+
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px; }
+
+.card {
+  display: block;
+  overflow: hidden;
+  border: 2px solid transparent;
+  border-radius: var(--radius);
+  background: var(--white);
+  color: inherit;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+.card:hover { box-shadow: 0 6px 18px rgba(0, 0, 0, 0.14); }
+.card-cold { border-color: var(--red); }
+
+.card-photo { width: 100%; height: 130px; object-fit: cover; display: block; }
+.card-body { padding: 14px 16px 16px; }
+.card-head { display: flex; justify-content: space-between; align-items: center; }
+.card-name { font-size: 18px; font-weight: bold; }
+.card-temperature { margin: 8px 0; font-size: 40px; font-weight: bold; }
+.card-cold .card-temperature { color: var(--red); }
+
+.card-details { display: flex; justify-content: space-between; margin: 0 0 10px; }
+.card-details dt { color: var(--gray); font-size: 12px; }
+.card-details dd { margin: 0; font-weight: bold; }
+
+
+/* ===== 状態表示（正常・低温・記録なし） ===== */
+
+.badge { padding: 3px 10px; border-radius: 999px; font-size: 13px; font-weight: bold; color: var(--white); }
+.badge-ok { background: #1D7D5A; }     /* 白文字のコントラスト確保のため濃い緑 */
+.badge-cold { background: #C43D00; }   /* 白文字のコントラスト確保のため濃い赤 */
+.badge-none { background: var(--gray); }
+
+
+/* ===== 棟の画面 ===== */
+
+.back { color: var(--green-dark); }
+
+.house { display: flex; gap: 24px; margin: 16px 0 24px; align-items: center; }
+.house-photo { width: 320px; height: 220px; object-fit: cover; border-radius: var(--radius); }
+.house h1 { margin: 0; }
+.house-numbers { display: flex; gap: 40px; margin: 16px 0 8px; }
+.label { display: block; color: var(--gray); font-size: 14px; }
+.big { font-size: 44px; font-weight: bold; }
+
+/* ===== スマートフォン表示 ===== */
+
+@media (max-width: 640px) {
+  .page { padding: 16px; }
+  .hero { height: 180px; }
+  .house { flex-direction: column; align-items: stretch; }
+  .house-photo { width: 100%; }
+}
+
+.panel { padding: 20px; border-radius: var(--radius); background: var(--white); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); }
+.panel h2 { margin-top: 0; font-size: 18px; }
+.chart-box { height: 300px; }

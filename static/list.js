@@ -83,7 +83,7 @@ function showAlert(coldHouseNames, coldLimit) {
     alertBar.hidden = true;
     return;
   }
-  alertBar.textContent = `${coldHouseNames.join("・")} が ${coldLimit}℃ を下回っています．`;
+  alertBar.textContent = `${coldHouseNames.join("・")} が ${coldLimit}℃ を下回っています．暖房と換気窓を確認してください．`;
   alertBar.hidden = false;
 }
 

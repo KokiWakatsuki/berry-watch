@@ -2,7 +2,7 @@
 センサーの代わりをするプログラム．
 
 実際のハウスでは，センサー（測定機器）が温度・湿度を測定し，サーバーに送信する．
-ここでは8棟分の値を生成し，10分ごとに送信する．終了は Ctrl + C．
+ここでは8棟分の値を生成し，1分ごとに送信する．終了は Ctrl + C．
 """
 
 import json
@@ -17,7 +17,7 @@ import urllib.request
 
 SERVER_URL = "http://localhost:8000/api/readings"  # 送信先
 HOUSE_IDS = [1, 2, 3, 4, 5, 6, 7, 8]               # 測定する棟
-INTERVAL_SECONDS = 600                             # 送信間隔（秒）
+INTERVAL_SECONDS = 60                              # 送信間隔（秒）
 TIMEOUT_SECONDS = 5                                # 応答の待機時間（秒）
 
 
@@ -47,7 +47,7 @@ def send(house_id, temperature, humidity):
 
 
 def main():
-    """全棟の値を10分ごとに測定・送信し続ける．"""
+    """全棟の値を1分ごとに測定・送信し続ける．"""
     # 棟ごとの現在値．初期値は全棟共通
     temperatures = {}
     humidities = {}

@@ -24,7 +24,7 @@ docker compose up --build
 python3 sensor.py
 ```
 
-8棟の温度・湿度を10分ごとにサーバーへ送信する．終了は Ctrl + C．
+8棟の温度・湿度を1分ごとにサーバーへ送信する．終了は Ctrl + C．
 
 ## 測定値が画面に表示されるまで
 
@@ -59,7 +59,7 @@ http://localhost:8000/docs で，API をブラウザから試せる．
 berry-watch/
 ├── app.py          サーバー．測定値の保存と，画面への応答
 ├── schema.sql      テーブル定義
-├── sensor.py       センサーの代わり．10分ごとに測定値を送信
+├── sensor.py       センサーの代わり．1分ごとに測定値を送信
 ├── static/         画面
 │   ├── index.html  一覧画面
 │   ├── list.js     一覧画面の処理

@@ -1,0 +1,18 @@
+// このフォルダを VS Code で開いたときの設定
+{
+  // 開いたら README を表示する
+  "workbench.startupEditor": "readme",
+
+  // .md（説明書）は，書式を整えた表示で開く
+  "workbench.editorAssociations": {
+    "*.md": "vscode.markdown.preview.editor"
+  },
+
+  // 左の一覧に，設定用の小さなファイルを表示しない（中身を見るときは false に）
+  "files.exclude": {
+    "**/__pycache__": true,
+    ".dockerignore": true,
+    ".gitignore": true,
+    ".vscode": true
+  }
+}

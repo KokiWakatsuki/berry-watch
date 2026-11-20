@@ -68,5 +68,6 @@ berry-watch/
 │   ├── style.css   スタイル
 │   └── images/     写真
 ├── Dockerfile      コンテナの作成手順
-└── compose.yml     コンテナの起動設定
+├── compose.yml     コンテナの起動設定
+└── .vscode/        VS Code の設定
 ```
